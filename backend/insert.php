@@ -45,19 +45,14 @@ echo "Error creating table: " . $conn->error;
  
 
 
- 
-//  $database = new Database();
-
-// $database->createProductTable();
-
+  
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $data = json_decode(file_get_contents("php://input"));
  
  
 var_dump("post method is call ? \n");
-// // استخدام الدالة لإنشاء الكائن
-
+ 
 $product = createDVDObject($data->sku, $data->name, $data->price,$data->productType, $data->productAttributes);
 
 $productManager = new ProductManager();
@@ -65,23 +60,11 @@ $productManager = new ProductManager();
 $productManager->addProduct($conn, $product);
 
 
-// طباعة الكائن
- echo("----- in post product ----- ");
+  echo("----- in post product ----- ");
  var_dump($product);
  
 
-
-
-
-// echo json_encode($data) ;   
-// echo json_encode($newProduct) ;   
-  
-
-// $come=$productManager->addProduct($conn, $newProduct);
-
-// echo json_encode($productManager) ;   
-// echo json_encode($come) ;   
-
+ 
   
 }
 elseif ($_GET['action'] === 'delete') {
@@ -102,8 +85,7 @@ elseif ($_GET['action'] === 'delete') {
 
 elseif ($_GET['action'] === "get") {
   
-  // echo("\n action:get.jd \n") ;
-
+ 
 
   
 
@@ -117,8 +99,7 @@ elseif ($_GET['action'] === "get") {
   }
   
   function createDVDObject($sku, $name, $price,$productType, $productAttributes) {
-    // إنشاء كائن DVD
-    var_dump("createDVDObject is call now \n");
+     var_dump("createDVDObject is call now \n");
     echo("\n-------------- \n");
     // var_dump($data);
     
@@ -147,8 +128,7 @@ elseif ($_GET['action'] === "get") {
 
     var_dump($product);
 
-    // // // // إعادة الكائن
-
+ 
 
 
 
@@ -159,80 +139,7 @@ elseif ($_GET['action'] === "get") {
   
 
 
-function createProduct($data)
-{var_dump("product");
-  var_dump("product");
-  var_dump("product");
-  var_dump("product");
-  var_dump("product");
-//   var_dump("product");
-//   echo("\n-------------- \n");
-//   // var_dump($data);
  
-//  echo("\n-------------- \n");
-
- 
-//   $productAttributes=$data->productAttributes;
-//    $productType = ucfirst(strtolower($data->productType));
-  
-//     var_dump ($productType);
-
-
-     $productClasses = [
-        'Dvd' => Dvd::class,
-        'Book' => Book::class,
-        'Furniture' => Furniture::class,
-    ];
-
-    if (!isset($productClasses[$productType])) {
-        throw new InvalidArgumentException("Invalid product type");
-    }
-
-    $productClass = $productClasses[$productType];
-    $product = new $productClass($data->sku,$data->name, $data->price,$productAttributes);
- 
-
-
-  
- return $product;
-
- 
- //   echo "\n createProduct run \n";
-//   $productType = ucfirst(strtolower($data->productType));
-//   echo "\n \n \n data    is : ..\n\n";
-//   echo json_encode($data) ;
-
-//      $productClasses = [
-//         'Dvd' => Dvd::class,
-//         'Book' => Book::class,
-//         'Furniture' => Furniture::class,
-//     ];
-
-//     if (!isset($productClasses[$productType])) {
-//         throw new InvalidArgumentException("Invalid product type");
-//     }
-
-//     $productClass = $productClasses[$productType];
- 
-
-//     echo "\n \n \n productAttribute    is : ..\n\n";
-//     echo json_encode($data->productAttributes) ;
-//   echo("\n -------------- \n");
-  
-// $productAttributes=$data->productAttributes;
-
-    //  $product = new DVD($data->sku, $data->name, $data->price, $productAttributes);
-
-    // //  echo("------XXX--------");
-    // //  echo json_encode($product);
-    // echo "\n createProduct end :) \n\n\n\n";
-
-    // var_dump ($product);
-
-
-    // return $product;
-}
-
  
   
  

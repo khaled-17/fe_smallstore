@@ -75,8 +75,7 @@ import { useNavigate } from 'react-router-dom';
   });
  
 
-//----------------------------
-const formik = useFormik({
+ const formik = useFormik({
   initialValues: {
     sku: '',
     name: '',
@@ -172,8 +171,7 @@ useEffect(()=>{
     }
   });
 
-  // console.log(productAttributes);
-
+ 
   return productAttributes;
 };
 const productAttributes = removeEmptyFields(userData);
@@ -419,45 +417,4 @@ productType
 
 export default Addingproduct;
 
-
-// const [sku, setSku] = useState('');
-// const [name, setName] = useState('');
-// const [price, setPrice] = useState('');
-// const [productAttribute, setProductAttribute] = useState('');
-
-
-
-
-
-// useEffect(()=>{
-
-//   setUserData({
-//     Size: "",
-//     Width: "",
-//     height: "",
-//     length: "",
-//   })
-
-// },[ productType])
-
-
-
-// const handleSave =async () => {
-//   formik.submitForm(); // تقديم البيانات عند الضغط على زر الإرسال خارج النموذج
  
-  // try {
-  //   const response = await Instance.post('http://localhost:8080/backend/insert.php', {
-  //     sku,
-  //     name,
-  //     price,
-  //     productType,
-  //     productAttributes,
-  //   });
-
-  //   console.log( 'response.data');
-   // } catch (error) {
-  //   console.error('Error adding product:', error);
-   // }
-
-
-// };

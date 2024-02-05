@@ -19,12 +19,12 @@ import axios from 'axios';
        .then(response => {
         console.log(response.data);
         setStateValue(response.data)
-        // يمكنك أيضًا تحديث حالة الكمبوننت هنا إذا كان ذلك ضروريًا.
-      })
+       })
       .catch(error => {
         console.error('Error adding product:', error);
       });
-  }, [ubdate]); // فارغة لتنفيذ ال useEffect مرة واحدة عند تحميل الكمبوننت
+  }, [ubdate]);
+  
 
   const [selectedItems, setSelectedItems] = useState([]);
 
@@ -54,7 +54,7 @@ import axios from 'axios';
       try {
         
         const response = await axios.get('http://ramses.lovestoblog.com/backend/insert.php', {
-            params: { action: 'delete', ids: selectedItems }, // إرسال البارامترز
+            params: { action: 'delete', ids: selectedItems },  
          });
     
         console.log( response);
@@ -64,11 +64,9 @@ import axios from 'axios';
 
         setubdate((prev) => prev + 1);
 
-        // You can perform additional actions after successfully adding the product
-      } catch (error) {
+       } catch (error) {
         console.error('Error adding product:', error);
-        // Handle error appropriately
-      }
+       }
     
     
     };
